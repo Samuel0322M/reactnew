@@ -39,19 +39,35 @@ function App() {
   )
   
   const [turn, setTurn] = useState(TURNS.X)
-  const [winner, setWinner] =useState(null)
+  const [winner, setWinner] = useState(null)
+
+  const checkWinner = (boardToCheck) => {
+    for (const combo of WINNER_COMBOS) {
+      const [a, b, c] = combo
+      if (
+        boardToCheck[a] &&
+        boardToCheck[a] === boardToCheck[b] &&
+        boardToCheck[a] === boardToCheck[c]
+      ) {
+        return boardToCheck[a]
+      }
+    }
+    return null
+  }
 
   const updateBoard = (index) => {
-    if (board[index]) return
-    
+    if (board[index] || winner) return
+    // actualizamos el tablero
     const newBoard = [...board]
     newBoard[index] = turn
-    
     setBoard(newBoard)
-    console.log("new board", newBoard)
-    
+    // se cambia el turno entre X u O
     const newTurn = turn === TURNS.X ? TURNS.O : TURNS.X
     setTurn(newTurn)
+    const newWinner = checkWinner(newBoard)
+    if (newWinner) {
+      setWinner(newWinner)
+    }
   }
 
   return (
@@ -79,6 +95,17 @@ function App() {
         <Square isSelected ={turn === TURNS.O}>{TURNS.O}</Square>
       </section>
       </main>
+
+
+        {
+          winner !== null (
+            <section className="winner">
+              
+            </section>
+          )
+        }
+
+
     </>
   )
 }

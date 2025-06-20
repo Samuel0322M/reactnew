@@ -39,3 +39,32 @@
 .read-the-docs {
   color: #888;
 }
+
+	
+	*[data-aetheme=dark-cobalt] {
+    --theme-color-primary:  #DCDCDC !important;
+    --theme-color-accent: #003161 !important;
+	  --theme-color-text: #000000 !important;
+	  --theme-color-secondary: #3f51b5 !important;
+		/*--theme-color-muted: #808080 !important;
+		 
+		--theme-box-shadow: rgba(255, 0, 0, 0.5) !important;*/
+	} 
+	
+	.ae-menubar.tabsbar{
+		
+		background: #f5f5f5 !important;
+		
+	}
+	
+	section.ae-menubar.toolbar.connected{
+		
+		background: #0031A5 !important;
+		
+	}
+	
+	.ae-menubar-accordion > [role=menubar] [role=menuitem]:hover, .ae-menubar-accordion > [role=menubar] [role=menuitem][data-active=true] {
+		
+		background: #3f51b5 !important;
+	}
+	
